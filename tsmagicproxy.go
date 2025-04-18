@@ -203,21 +203,6 @@ func (s *DNSServer) handleAddressQuery(q dns.Question, m *dns.Msg) {
 		}
 	}
 	
-	// Special handling for the test case
-	if qname == "gatus.rajsingh.info" {
-		log.Printf("Found test case: gatus.rajsingh.info, adding manual answer 10.69.10.14")
-		if q.Qtype == dns.TypeA {
-			addr, err := netip.ParseAddr("10.69.10.14")
-			if err == nil {
-				rr := createRR(q.Name, addr, *ttl)
-				if rr != nil {
-					m.Answer = append(m.Answer, rr)
-				}
-			}
-		}
-		return
-	}
-	
 	log.Printf("No match found for: %s", qname)
 }
 
