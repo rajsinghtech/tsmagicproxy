@@ -1,0 +1,41 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+tsmagicproxy
+
+# Test binary, built with `go test -c`
+*.test
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+
+# Dependency directories (remove the comment below to include it)
+# vendor/
+
+# Go workspace file
+go.work
+
+# Tailscale state directories
+*-state/
+tsmagicproxy-state/
+magicproxy-state/
+
+# Local environment files
+.env
+.env.local
+
+# IDE specific files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Mac OS specific files
+.DS_Store
+
+# Kubernetes secrets with real credentials
+kubernetes/overlays/*/secret.yaml
+!kubernetes/overlays/dev/secret.yaml 
