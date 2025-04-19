@@ -269,22 +269,6 @@ func (s *DNSServer) handlePTRQuery(q dns.Question, m *dns.Msg) {
 			}
 		}
 	}
-	
-	// Special handling for the test case
-	if ip.String() == "10.69.10.14" {
-		log.Printf("Found test case IP: 10.69.10.14, adding manual PTR record gatus.rajsingh.info")
-		ptr := &dns.PTR{
-			Hdr: dns.RR_Header{
-				Name:   q.Name,
-				Rrtype: dns.TypePTR,
-				Class:  dns.ClassINET,
-				Ttl:    uint32(*ttl),
-			},
-			Ptr: "gatus.rajsingh.info.",
-		}
-		m.Answer = append(m.Answer, ptr)
-		return
-	}
 }
 
 // extractIPFromReverseDNS extracts an IP address from a reverse DNS query
