@@ -6,7 +6,7 @@ toolchain go1.24.1
 
 require (
 	github.com/miekg/dns v1.1.58
-	tailscale.com v1.82.5
+	tailscale.com v1.88.3
 )
 
 require (
